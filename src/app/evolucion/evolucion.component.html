@@ -1,0 +1,63 @@
+<div class="container-sm align-items-md-stretch my-4">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="fw-light">Evolución de la divisa</h3>
+    <hr>
+    <div class="px-5 py-3">
+      <form #formConversion="ngForm" class="bg-body-secondary rounded p-3">
+        <div class="mb-3">
+          <label for="monedaOrigen">Moneda de origen</label>
+          <select class="form-select" name="monedaOrigen" [(ngModel)]="monedaOrigen" (ngModelChange)="onSelected()">
+            <option *ngFor="let item of listaDivisas | keyvalue"  value="{{item.key}}">{{item.value}} ({{item.key}})</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="monedaDestino">Moneda de destino</label>
+          <select class="form-select" name="monedaDestino" [(ngModel)]="monedaDestino" (ngModelChange)="onSelected()">
+            <option *ngFor="let item of listaDivisas | keyvalue"  value="{{item.key}}">{{item.value}} ({{item.key}})</option>
+          </select>
+        </div>
+        <hr>
+        <div>
+          <p>Periodo:</p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="1semana" type="radio" name="radioPeriodo" id="radio1semana">
+            <label class="form-check-label" for="radio1semana">
+              1 semana
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="1mes" type="radio" name="radioPeriodo" id="radio1mes" checked>
+            <label class="form-check-label" for="radio1mes">
+              1 mes
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="6meses" type="radio" name="radioPeriodo" id="radio6meses">
+            <label class="form-check-label" for="radio6meses">
+              6 meses
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="1anyo" type="radio" name="radioPeriodo" id="radio1anyo">
+            <label class="form-check-label" for="radio1anyo">
+              1 año
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="5anyos" type="radio" name="radioPeriodo" id="radio5anyos">
+            <label class="form-check-label" for="radio5anyos">
+              5 años
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="periodo" (ngModelChange)="onSelected()" value="historico" type="radio" name="radioPeriodo" id="radioHistorico">
+            <label class="form-check-label" for="radioHistorico">
+              Histórico
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <canvas id="graficoEvolucion" class="mt-4"></canvas>
+  </div>
+</div>

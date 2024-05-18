@@ -1,0 +1,39 @@
+<div class="container-sm align-items-md-stretch my-4">
+  <div class="row justify-content-center align-items-center">
+      <h3 class="text-end fw-light">Tasa de cambio a {{divisa.date}}</h3>
+      <p class="text-end fw-light">Los datos se actualizan alrededor de las 16:00 CET todos los días laborables.</p>
+      <div class="px-5 py-3">
+        <div class="row pb-3">
+          <span>Selecciona una divisa:</span>
+          <form #formCurrency = "ngForm">
+            <select class="form-select" name="divisa" [(ngModel)]="divisaSeleccionada" (ngModelChange)="onSelected()">
+              <option *ngFor="let item of listaDivisas | keyvalue" value="{{item.key}}">{{item.value}} ({{item.key}})</option>
+            </select>
+          </form>
+        </div>
+        <hr>
+      <p class="fs-5">{{divisa.amount}} {{listaDivisas[divisa.base]}} <span class="fw-light">({{divisa.base}})</span> se cambia a:</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">DIVISA</th>
+            <th scope="col">ABREVIATURA</th>
+            <th scope="col">1 {{divisaSeleccionada}}:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of divisa.rates | keyvalue; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{listaDivisas[item.key]}}</td>
+            <td>{{item.key}}</td>
+            <td>{{item.value.toLocaleString('es-ES')}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <div class="row justify-content-center align-items-center">
+    <canvas id="canvas"></canvas>
+  </div> -->
+</div>

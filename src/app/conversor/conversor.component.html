@@ -1,0 +1,41 @@
+<div class="container-sm align-items-md-stretch my-4">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="fw-light">Conversor de divisas <span class="fs-6 fst-italic">{{divisa.date}}</span></h3>
+    <hr>
+    <div class="px-5 py-3">
+      <form #formConversion="ngForm" (ngSubmit)="onSubmit()" class="bg-body-secondary rounded p-3">
+        <div class="mb-3">
+          <label for="cantidad">Cantidad a convertir</label>
+          <input type="number" min="1" class="form-control" name="cantidad" [(ngModel)]="cantidad">
+        </div>
+        <div class="mb-3">
+          <label for="monedaOrigen">Moneda de origen</label>
+          <select class="form-select" name="monedaOrigen" [(ngModel)]="monedaOrigen" (ngModelChange)="onSelected()">
+            <option *ngFor="let item of listaDivisas | keyvalue"  value="{{item.key}}">{{item.value}} ({{item.key}})</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="monedaDestino">Moneda de destino</label>
+          <select class="form-select" name="monedaDestino" [(ngModel)]="monedaDestino" (ngModelChange)="onSelected()">
+            <option *ngFor="let item of listaDivisas | keyvalue"  value="{{item.key}}">{{item.value}} ({{item.key}})</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Convertir</button>
+      </form>
+      <div *ngIf="mostrarMensaje">
+        <div *ngIf="resultado > 0 ;else error" class="alert alert-info mt-3" role="alert">
+          <p>{{cantidadTemp}} {{listaDivisas[monedaOrigenTemp]}} ({{monedaOrigenTemp}})  equivalen a:</p>
+          <h4 class="alert-heading text-center">{{resultado.toLocaleString('es-ES')}} {{listaDivisas[monedaDestinoTemp]}} ({{monedaDestinoTemp}})</h4>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<ng-template #error>
+  <div class="alert alert-danger mt-3" role="alert">
+    La cantidad a convertir tiene que ser un número positivo.
+  </div>
+</ng-template>

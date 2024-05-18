@@ -1,0 +1,40 @@
+<header class="container my-3">
+  <nav class="navbar navbar-expand-sm navbar-dark text-bg-dark p-3">
+    <div class="container-fluid">
+      <!-- titulo -->
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img class="me-2" src="assets/images/intercambio.png" alt="Logo" width="35" height="35">
+        {{title}}
+      </a>
+
+      <!-- botón menú colapsado -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-header">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- enlaces -->
+      <div class="collapse navbar-collapse" id="menu-header">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Tasa de Cambio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/conversor']">Conversor</a>
+          </li>
+          <li class=" nav-item">
+            <a class="nav-link" [routerLink]="['/evolucion']">Evolución</a>
+          </li>
+          <li class=" nav-item">
+            <a class="nav-link" [routerLink]="['/visitas']">Libro de visitas</a>
+          </li>
+          <li class=" nav-item">
+            <a class="nav-link" [routerLink]="['/about']">Acerca de</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main class=" container">
+  <router-outlet></router-outlet>
+</main>
