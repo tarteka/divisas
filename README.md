@@ -4,8 +4,6 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 ## Acerca de
 
-![Logo Mercado de Divisas](src/assets/logo.png)
-
 **Mercado de Divisas** es una aplicación web desarrollada con **Angular** que consume la **API pública de Frankfurter** para la consulta de tipos de cambio entre divisas.
 
 Se trata de un proyecto académico realizado para el módulo **Desarrollo Web en Entorno Cliente** del **Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web**, impartido en **BIRT.eus**.
