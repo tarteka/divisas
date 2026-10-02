@@ -7,7 +7,6 @@ import { DivisaHistorico } from '../models/DivisaHistorico';
 import { ListaDivisas } from '../models/ListaDivisas';
 
 import { Chart, Tooltip } from 'chart.js/auto';
-import { callback } from 'chart.js/dist/helpers/helpers.core';
 
 @Component({
   selector: 'app-evolucion',

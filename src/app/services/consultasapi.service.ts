@@ -8,14 +8,13 @@ import { Observable } from 'rxjs';
  * https://www.frankfurter.app/docs/
  */
 
-
 // @ decorador para patrón singleton
 @Injectable()
 export class ConsultasApiService {
   public url: string;
 
   constructor(private _http: HttpClient) {
-    this.url = 'https://api.frankfurter.app/';
+    this.url = 'https://api.frankfurter.dev/v1/';
   }
 
   /**
@@ -58,7 +57,12 @@ export class ConsultasApiService {
    * @param to Array<string> de divisas (opcional). Por defecto todas.
    * @returns
    */
-  getPeriodo(startDate: string, endDate : string = '', from: string = '', to: Array<string> = []): Observable<any> {
+  getPeriodo(
+    startDate: string,
+    endDate: string = '',
+    from: string = '',
+    to: Array<string> = [],
+  ): Observable<any> {
     let divisas: string = '';
     let parametro: string = startDate + '..';
     if (endDate != '') parametro = parametro + endDate;
