@@ -1,9 +1,10 @@
-<div class="container-sm align-items-md-stretch my-4">
-  <div class="row justify-content-center align-items-center">
+<div class="container-sm my-4">
+  <div class="text-center">
     <h3 class="fw-light">Evolución de la divisa</h3>
     <hr>
-    <div class="px-5 py-3">
-      <form #formConversion="ngForm" class="bg-body-secondary rounded p-3">
+  </div>
+  <div class="px-3 px-md-5 py-3">
+    <form #formConversion="ngForm" class="bg-body-secondary rounded p-3">
         <div class="mb-3">
           <label for="monedaOrigen">Moneda de origen</label>
           <select class="form-select" name="monedaOrigen" [(ngModel)]="monedaOrigen" (ngModelChange)="onSelected()">
@@ -58,6 +59,8 @@
         </div>
       </form>
     </div>
-    <canvas id="graficoEvolucion" class="mt-4"></canvas>
+    <div class="mt-4" style="position: relative; height: 50vh;">
+      <canvas id="graficoEvolucion"></canvas>
+    </div>
   </div>
-</div>
+
